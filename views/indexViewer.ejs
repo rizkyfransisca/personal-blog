@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <title>RizkyFransisca Blogs</title>
+    <style>
+        section {
+            min-height: 420px;
+        }
+
+        .fa {
+            margin-left: 5px;
+        }
+
+        .imagejumbo a::after {
+            -webkit-transform: scale(1.08);
+            transform: scale(1.08);
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        .col-md1 {
+            margin-bottom: 24px;
+        }
+
+        .imagecard {
+            height: 240px;
+            width: 100%;
+        }
+        .container-blogs {
+            max-width: 964px;
+        }
+        .card {
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.08);
+            padding: 10px;
+        }
+        .btn-continue{
+            margin-top: 10px;
+        }
+        .img-profile {
+            /* https://stackoverflow.com/questions/12690444/css-border-on-png-image-with-transparent-parts */
+            -webkit-filter: drop-shadow(2px 2px 0 white)
+                drop-shadow(-2px 2px 0 white)
+                drop-shadow(2px -2px 0 white)
+                drop-shadow(-2px -2px 0 white);
+
+            filter: drop-shadow(2px 2px 0 white)
+                    drop-shadow(-2px 2px 0 white)
+                    drop-shadow(2px -2px 0 white)
+                    drop-shadow(-2px -2px 0 white);
+        }
+
+
+        /* DESKTOP VERSION */
+        @media (min-width: 992px) {
+            .col-md {
+                margin-bottom: 0px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .myskill {
+                margin-top: 15px;
+            }
+            .form-column {
+                margin-top: 20px;
+            }
+        }
+    </style>
+
+
+    <title>My Portfolio</title>
+</head>
+
+<body class="mt-5">
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">RizkyFransisca's Blog</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+                aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav">
+                    <a class="nav-item nav-link active" href="/">Home <span
+                            class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="#blogs">Blogs</a>
+                    <a class="nav-item nav-link" href="#contact">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-lg-4">
+                    <img src="/images/rizky.png" width="300px" height="270px" class="img-profile">
+                </div>
+                <div class="col-lg-6 text-center">
+                    <h2>Selamat datang di blog saya!</h2>
+                    <p>"Saya membuat personal blog site ini sebagai <b>jembatan</b> saya untuk mencurahkan segala pikiran saya dan sebagai <b>catatan hidup</b> saya nantinya, blog site pribadi ini juga berfungsi sebagai alat bantu saya untuk mengingat ide-ide yang pernah saya pikirkan."</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="blogs" class="mb-5">
+        <div class="container">
+            <div class="row pt-4 mb-4">
+                <div class="col text-center">
+                    <h2>My Blogs</h2>
+                </div>
+            </div>
+                <% blogs.forEach(blog => { %>
+                    <div class="row justify-content-center">
+                        <div class="col-lg-10">
+                            <div class="card mt-4 mb-4">
+                                <!-- kalo langsung mengeluarkan value di javascript maka pakek = , kalo misal foreach tidak usah pakek sama dengan -->
+                                <div class="card-body">
+                                    <h2 class="card-title"><%= blog.title %></h2>
+                                    <div class="card-subtitle text-muted mb-2 date">
+                                        <%= blog.timeCreated.toLocaleDateString() %>
+                                    </div>
+                                    <div class="card-subtitle text-info mb-2 author">
+                                        <i class="fas fa-user-alt fa-sm"></i>
+                                        <%= blog.author %>
+                                    </div>
+                                    <div class="card-text mb-2"><%- blog.snippet %> ....</div>
+                                    <a href="blogs/<%= blog.slug %>" class="btn btn-primary btn-continue">Continue Reading &#8594;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            </div>
+            
+        </div>
+        
+    </section>
+
+
+    <section id="contact" class="contact mb-5">
+        <div class="container">
+            <div class="row pt-4 mb-4">
+                <div class="col text-center">
+                    <h2>Contact Me</h2>
+                </div>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-4">
+                    <div class="card text-white bg-primary mb-3 text-center">
+                        <div class="card-body">
+                            <h5 class="card-title">Hubungi Saya</h5>
+                            <p class="card-text">Kalian bisa berkomunikasi bersama saya, dengan menghubungi saya di
+                                salah
+                                satu platform media sosial ini</p>
+                        </div>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item">
+                            <b>Email:</b> rizky.royal@gmail.com
+                        </li>
+                        <li class="list-group-item">
+                            <b>WhatsApp:</b> 081938713808
+                        </li>
+                        <li class="list-group-item">
+                            <b>Line:</b> rizkyfransisca1234
+                        </li>
+                        <li class="list-group-item">
+                            <b>Instagram:</b> rizkyfransisca
+                        </li>
+                        <li class="list-group-item">
+                            <b>Telegram:</b> @rizkykadek123
+                        </li>
+
+                    </ul>
+                </div>
+
+
+                <div class="col-lg-6 form-column">
+                    <form action="blogs/contacts" method="POST">
+                        <div class="form-group">
+                            <label for="Nama">Nama</label>
+                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Anda...">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Masukkan Email anda...">
+                        </div>
+                        <div class="form-group">
+                            <label for="telp">No Telp</label>
+                            <input type="text" name="telp" class="form-control" id="telp" placeholder="Masukkan No Telp Anda...">
+                        </div>
+                        <div class="form-group">
+                            <label for="pesan">Pesan</label>
+                            <textarea name="pesan" id="pesan" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary">Kirim pesan!</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+    </section>
+    <footer class="bg-dark text-white">
+        <div class="container">
+            <div class="row pt-3">
+                <div class="col text-center">
+                    <p>Copyright 2020.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="/js/sweetalert.min.js"></script>
+    <script>
+        $("a").on('click', function (event) {
+            if (this.hash !== "") {
+                var hash = this.hash;
+                $('html, body').animate({
+                    scrollTop: $(hash).offset().top - 70
+                }, 950, function () {});
+                event.preventDefault();
+            } // End if
+        });
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+    </script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
