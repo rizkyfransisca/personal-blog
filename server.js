@@ -10,8 +10,10 @@ const blogRouter = require('./routes/blogs');
 const Blog = require('./models/Blog');
 const app = express();
 
+const URI = "mongodb+srv://rizkyfransisca:rizkyroyal456@cluster0.1kkmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+
 //connect to mongoose
-mongoose.connect('mongodb://localhost/personalblog', {
+mongoose.connect(URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
