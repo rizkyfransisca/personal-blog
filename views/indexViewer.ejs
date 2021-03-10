@@ -10,6 +10,7 @@
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
+    <link href='https://cdn.jsdelivr.net/npm/boxicons@2.0.5/css/boxicons.min.css' rel='stylesheet'>
     <title>RizkyFransisca Blogs</title>
     <style>
         section {
@@ -59,6 +60,31 @@
                     drop-shadow(2px -2px 0 white)
                     drop-shadow(-2px -2px 0 white);
         }
+        .footer__icon {
+            font-size: 1.6rem;
+            color: #ffffff;
+            margin: 0 1.5rem;
+        }
+        .footer__icon:hover {
+            color: lightgray;
+        }
+        .email-me{
+            color: white;
+        }
+        .email-me:visited{
+            color: white;
+        }
+        .email-me:hover{
+            color: lightgray;
+            text-decoration: none;
+        }
+        textarea{
+            height: auto;
+        }
+        .jumbotron{
+            padding-bottom: 0;
+        }
+        
 
 
         /* DESKTOP VERSION */
@@ -95,7 +121,7 @@
                     <a class="nav-item nav-link active" href="/">Home <span
                             class="sr-only">(current)</span></a>
                     <a class="nav-item nav-link" href="#blogs">Blogs</a>
-                    <a class="nav-item nav-link" href="#contact">Contact</a>
+                    <a class="nav-item nav-link" href="#footer">Contact</a>
                 </div>
             </div>
         </div>
@@ -117,11 +143,6 @@
 
     <section id="blogs" class="mb-5">
         <div class="container">
-            <div class="row pt-4 mb-4">
-                <div class="col text-center">
-                    <h2>My Blogs</h2>
-                </div>
-            </div>
                 <% blogs.forEach(blog => { %>
                     <div class="row justify-content-center">
                         <div class="col-lg-10">
@@ -152,60 +173,30 @@
 
     <section id="contact" class="contact mb-5">
         <div class="container">
-            <div class="row pt-4 mb-4">
+            <div class="row pt-3 mb-4">
                 <div class="col text-center">
-                    <h2>Contact Me</h2>
+                    <h2>Berikan Komentar</h2>
                 </div>
             </div>
 
             <div class="row justify-content-center">
-                <div class="col-lg-4">
-                    <div class="card text-white bg-primary mb-3 text-center">
-                        <div class="card-body">
-                            <h5 class="card-title">Hubungi Saya</h5>
-                            <p class="card-text">Kalian bisa berkomunikasi bersama saya, dengan menghubungi saya di
-                                salah
-                                satu platform media sosial ini</p>
-                        </div>
-                    </div>
-                    <ul class="list-group">
-                        <li class="list-group-item">
-                            <b>Email:</b> rizky.royal@gmail.com
-                        </li>
-                        <li class="list-group-item">
-                            <b>WhatsApp:</b> 081938713808
-                        </li>
-                        <li class="list-group-item">
-                            <b>Line:</b> rizkyfransisca1234
-                        </li>
-                        <li class="list-group-item">
-                            <b>Instagram:</b> rizkyfransisca
-                        </li>
-                        <li class="list-group-item">
-                            <b>Telegram:</b> @rizkykadek123
-                        </li>
-
-                    </ul>
-                </div>
-
-
-                <div class="col-lg-6 form-column">
+                <div class="col-md-10 form-column">
                     <form action="blogs/contacts" method="POST">
                         <div class="form-group">
                             <label for="Nama">Nama</label>
-                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Anda...">
+                            <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Anda..." required>
                         </div>
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" name="email" class="form-control" id="email" placeholder="Masukkan Email anda...">
+                            <input type="email" name="email" class="form-control" id="email" placeholder="Masukkan Email anda..." required>
                         </div>
                         <div class="form-group">
                             <label for="telp">No Telp</label>
-                            <input type="text" name="telp" class="form-control" id="telp" placeholder="Masukkan No Telp Anda...">
+                            <input type="text" name="telp" class="form-control" id="telp" placeholder="Masukkan No Telp Anda..." required>
                         </div>
                         <div class="form-group">
                             <label for="pesan">Pesan</label>
-                            <textarea name="pesan" id="pesan" class="form-control"></textarea>
+                            <textarea name="pesan" id="pesan" class="form-control" rows="5" required></textarea>
                         </div>
                         <div class="form-group">
                             <button type="submit" class="btn btn-primary">Kirim pesan!</button>
@@ -214,11 +205,27 @@
                 </div>
             </div>
     </section>
-    <footer class="bg-dark text-white">
+    <footer class="bg-dark text-white" id="footer">
         <div class="container">
-            <div class="row pt-3">
+            <div class="row pb-2 pt-3">
                 <div class="col text-center">
-                    <p>Copyright 2020.</p>
+                    <h5>Hubungi Saya</h5>
+                </div>
+            </div>
+            <div class="row pt-1 justify-content-center">
+                <a href="https://linkedin.com/in/kadek-rizky-fransisca-putra-13333714b" target="_blank" class="footer__icon"><i class='bx bxl-linkedin'></i></a>
+                <a href="https://www.instagram.com/rizkyfransisca" target="_blank" class="footer__icon"><i class='bx bxl-instagram'></i></a>
+                <a href="https://wa.me/081938713808" target="_blank" class="footer__icon"><i class='bx bxl-whatsapp'></i></a>
+                <a href="https://rizkyfransisca.github.io/portfoliorizkyfransisca.github.io/" target="_blank" class="footer__icon"><i class='bx bx-world'></i></a>
+            </div>
+            <div class="row pb-3 pt-2">
+                <div class="col text-center">
+                    <a href="mailto:rizky.royal@gmail.com" class="email-me">rizky.royal@gmail.com</a>
+                </div>
+            </div>
+            <div class="row pb-2 pt-3">
+                <div class="col text-center">
+                    <p>Copyright RizkyFransisca 2021.</p>
                 </div>
             </div>
         </div>
