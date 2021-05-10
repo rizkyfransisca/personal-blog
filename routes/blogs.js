@@ -5,6 +5,14 @@ const Blog = require('./../models/Blog');
 const Contact = require('./../models/Contact')
 const router = express.Router();
 const nodemailer = require('nodemailer')
+const {google} = require('googleapis')
+const CLIENT_ID = '645057018506-bc56gr1c20gqvq3jb137f5rqhd28lnrf.apps.googleusercontent.com'
+const CLIENT_SECRET = 'cM3JOKNZCeSi_xrxomTWd4vJ'
+const REDIRECT_URI = 'https://developers.google.com/oauthplayground'
+const REFRESH_TOKEN = '1//04AuXU4V7tCsLCgYIARAAGAQSNwF-L9Ir17At4_kszvTdEjkg9U-ahS5WKbuNEAzapQg39e5ga9VdVFvbPMuJTxzZn3wsJ0eYV38'
+
+const oAuth2Client = new google.auth.OAuth2(CLIENT_ID,CLIENT_SECRET,REDIRECT_URI)
+oAuth2Client.setCredentials({refresh_token: REFRESH_TOKEN})
 
 router.get('/new', (req, res) => {
   res.render('new');
@@ -22,11 +30,16 @@ router.get('/admin/send-mail/:id',async(req,res)=>{
 
 router.post('/send-mail',async(req,res)=>{
   try {
+    const accessToken = await oAuth2Client.getAccessToken()
     let transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
+          type: 'OAuth2',
           user: process.env.EMAIL,
-          pass: process.env.PASSWORD
+          clientId: CLIENT_ID,
+          clientSecret: CLIENT_SECRET,
+          refreshToken: REFRESH_TOKEN,
+          accessToken: accessToken
       }
     })
   
