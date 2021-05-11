@@ -39,7 +39,8 @@ router.post('/send-mail',async(req,res)=>{
           clientId: CLIENT_ID,
           clientSecret: CLIENT_SECRET,
           refreshToken: REFRESH_TOKEN,
-          accessToken: accessToken
+          accessToken: accessToken,
+          pass: process.env.PASSWORD
       },
       tls: {
         rejectUnauthorized: false
