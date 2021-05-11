@@ -33,17 +33,13 @@ router.post('/send-mail',async(req,res)=>{
     const accessToken = await oAuth2Client.getAccessToken()
     let transporter = nodemailer.createTransport({
       service: 'gmail',
-      host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
       auth: {
           type: 'OAuth2',
           user: process.env.EMAIL,
           clientId: CLIENT_ID,
           clientSecret: CLIENT_SECRET,
           refreshToken: REFRESH_TOKEN,
-          accessToken: accessToken,
-          pass: process.env.PASSWORD
+          accessToken: accessToken
       },
       tls: {
         rejectUnauthorized: false
