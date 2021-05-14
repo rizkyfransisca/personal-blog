@@ -174,7 +174,7 @@
                                         <td><%= contact.telp %></td>
                                         <td><%= contact.pesan %></td>
                                         <td><%= contact.timeCreated.toLocaleDateString() %></td>
-                                        <td><a href="send-mail/<%= contact.id %>" target="_blank" class="btn btn-success btn-email">Kirim Email</a></td>
+                                        <td><a href="send-mail/<%= contact.id %>" class="btn btn-success btn-email">Kirim Email</a></td>
                                         <td>
                                         <form action="/blogs/delete-mail/<%= contact.id %>?_method=DELETE" method="POST">
                                             <button type="submit" class="btn btn-danger">Delete</button>
