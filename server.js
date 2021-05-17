@@ -1,5 +1,5 @@
 const express = require('express');
-
+const cookieParser = require('cookie-parser')
 //bring in mongoose
 const mongoose = require('mongoose');
 
@@ -8,6 +8,7 @@ const methodOverride = require('method-override');
 
 const blogRouter = require('./routes/blogRoutes');
 const adminRouter = require('./routes/adminRoutes');
+const authRouter = require('./routes/authRoutes');
 const Blog = require('./models/Blog');
 const app = express();
 
@@ -22,7 +23,8 @@ mongoose.connect(URI, {
 
 //set template engine
 app.set('view engine', 'ejs');
-app.use(express.urlencoded({extended: false}))
+app.use(express.json()) 
+app.use(cookieParser())
 app.use(methodOverride('_method'));
 
 app.get('/', async(req,res)=>{
@@ -31,8 +33,10 @@ app.get('/', async(req,res)=>{
 })
 
 app.use(express.static('public'));
+app.use(authRouter)
 app.use('/blog', blogRouter)
 app.use('/admin', adminRouter)
+
 
 app.get('*', function (req, res) {
   res.render('404');
