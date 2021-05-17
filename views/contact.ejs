@@ -70,14 +70,14 @@
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="/blogs/new">
+            <a class="nav-link" href="/admin/new">
             <i class="fas fa-plus-square fa-fw"></i>
             <span>
                 New Article</span></a>
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item active">
-            <a class="nav-link" href="/blogs/admin/contact">
+            <a class="nav-link" href="/admin/contact">
             <i class="fas fa-address-book fa-fw"></i>
             <span>
                 Contact</span></a>
@@ -174,9 +174,9 @@
                                         <td><%= contact.telp %></td>
                                         <td><%= contact.pesan %></td>
                                         <td><%= contact.timeCreated.toLocaleDateString() %></td>
-                                        <td><a href="send-mail/<%= contact.id %>" class="btn btn-success btn-email">Kirim Email</a></td>
+                                        <td><a href="/admin/contact/send-mail/<%= contact.id %>" class="btn btn-success btn-email">Kirim Email</a></td>
                                         <td>
-                                        <form action="/blogs/delete-mail/<%= contact.id %>?_method=DELETE" method="POST">
+                                        <form action="/admin/contact/<%= contact.id %>?_method=DELETE" method="POST">
                                             <button type="submit" class="btn btn-danger">Delete</button>
                                         </form>
                                     </td>

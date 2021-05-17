@@ -158,7 +158,7 @@
                                         <%= blog.author %>
                                     </div>
                                     <div class="card-text mb-2"><%- blog.snippet %> ....</div>
-                                    <a href="blogs/<%= blog.slug %>" class="btn btn-primary btn-continue">Continue Reading &#8594;</a>
+                                    <a href="/blog/<%= blog.slug %>" class="btn btn-primary btn-continue">Continue Reading &#8594;</a>
                                 </div>
                             </div>
                         </div>
@@ -181,7 +181,7 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-10 form-column">
-                    <form action="blogs/contacts" method="POST">
+                    <form action="/blog/contact" method="POST">
                         <div class="form-group">
                             <label for="Nama">Nama</label>
                             <input type="text" name="nama" class="form-control" id="nama" placeholder="Masukkan Nama Anda..." required>

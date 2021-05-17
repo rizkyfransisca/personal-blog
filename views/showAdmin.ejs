@@ -70,10 +70,17 @@
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="/blogs/new">
+            <a class="nav-link" href="/admin/new">
             <i class="fas fa-plus-square fa-fw"></i>
             <span>
                 New Article</span></a>
+        </li>
+        <hr class="sidebar-divider">
+        <li class="nav-item">
+            <a class="nav-link" href="/admin/contact">
+            <i class="fas fa-address-book fa-fw"></i>
+            <span>
+                Contact</span></a>
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
@@ -153,7 +160,7 @@
                                 </div>
                                 <div>
                                     <a href="/admin" class="btn btn-secondary">All Articles</a>
-                                    <a href="/blogs/edit/<%= blog.id %>" class="btn btn-info">Edit</a>
+                                    <a href="/admin/edit/<%= blog.id %>" class="btn btn-info">Edit</a>
                                 </div>
                                 <div class="card-text mb-2 description-showadmin"><%- blog.description %></div>
                             </div>

@@ -65,14 +65,14 @@
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="/blogs/new">
+            <a class="nav-link" href="/admin/new">
             <i class="fas fa-plus-square fa-fw"></i>
             <span>
                 New Article</span></a>
         </li>
         <hr class="sidebar-divider">
         <li class="nav-item">
-            <a class="nav-link" href="/blogs/admin/contact">
+            <a class="nav-link" href="/admin/contact">
             <i class="fas fa-address-book fa-fw"></i>
             <span>
                 Contact</span></a>
@@ -143,7 +143,7 @@
             <div class="container">
                 <h1 class="mb-4">Welcome to Admin Page</h1>
                 <div>
-                    <a href="/blogs/new" class="btn btn-success"> New Article</a>
+                    <a href="/admin/new" class="btn btn-success"> New Article</a>
                 </div>
                 
                 <% blogs.forEach(blog => { %>
@@ -159,9 +159,9 @@
                                 <%= blog.author %>
                             </div>
                             <div class="card-text mb-2"><%- blog.snippet %> ....</div>
-                            <a href="blogs/admin/<%= blog.slug %>" class="btn btn-primary">Continue Reading &#8594;</a>
-                            <a href="blogs/edit/<%= blog.id %>" class="btn btn-info">Edit</a>
-                            <form action="/blogs/<%= blog.id %>?_method=DELETE" method="POST" class="d-inline">
+                            <a href="/admin/view/<%= blog.slug %>" class="btn btn-primary">Continue Reading &#8594;</a>
+                            <a href="/admin/edit/<%= blog.id %>" class="btn btn-info">Edit</a>
+                            <form action="/admin/<%= blog.id %>?_method=DELETE" method="POST" class="d-inline">
                                 <button type="submit" class="btn btn-danger">Delete</button>
                             </form>
                         </div>
