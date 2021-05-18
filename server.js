@@ -12,7 +12,9 @@ const authRouter = require('./routes/authRoutes');
 const Blog = require('./models/Blog');
 const app = express();
 
-const URI = "mongodb+srv://rizkyfransisca:rizkyroyal456@cluster0.1kkmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+require('dotenv').config()
+
+const URI = `mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@cluster0.1kkmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
 
 //connect to mongoose
 mongoose.connect(URI, {
@@ -23,8 +25,13 @@ mongoose.connect(URI, {
 
 //set template engine
 app.set('view engine', 'ejs');
+
+// tambahkan kedua ini supaya website mu aman dalam menerima dan mengirim data (req and res)
+// express.urlencoded({extended: true}) => untuk menghandle POST dari FORM tanpa fetch API
 app.use(express.urlencoded({extended: true})) 
+// express.json() => untuk menghandle POST menggunakan fetch API
 app.use(express.json())
+
 app.use(cookieParser())
 app.use(methodOverride('_method'));
 
