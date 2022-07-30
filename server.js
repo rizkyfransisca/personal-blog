@@ -14,7 +14,7 @@ const app = express();
 
 require('dotenv').config()
 
-const URI = `mongodb+srv://${process.env.USERNAME_DB}:${process.env.PASSWORD_DB}@cluster0.1kkmq.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+const URI = process.env.URL_DB
 
 //connect to mongoose
 mongoose.connect(URI, {
